@@ -1,0 +1,36 @@
+The main role of the EmployeeService interface and its implementation are:
+
+    Abstraction of Business Logic:
+        The EmployeeService interface defines the contract for handling business logic related to employee operations.
+        It encapsulates the operations that can be performed on employee entities and
+        provides a high-level abstraction for interacting with the underlying repository.
+
+    CRUD Operations:
+        The EmployeeService interface declares methods for performing CRUD (Create, Read, Update, Delete) on employees.
+        These methods define the necessary functionality to
+            create new employees, retrieve employee details, update employee information, and delete employees from the system.
+
+    Transaction Management:
+        The EmployeeService interface and its implementation can handle transaction management.
+        By applying appropriate annotations (such as @Transactional),
+            the service methods can participate in database transactions,
+            ensuring that multiple operations related to employee entities are executed as a single atomic unit.
+
+
+    Error Handling and Exception Propagation:
+        The EmployeeService interface provides a central location to
+            handle exceptions and propagate meaningful error messages to the calling code.
+        allows you to handle specific exceptions, perform logging, and transform exceptions into appropriate error responses.
+
+    Dependency Injection:
+        The EmployeeServiceImpl class typically utilizes dependency injection to
+            inject the EmployeeRepository or other required dependencies.
+        This enables loose coupling and enhances testability and maintainability.
+
+    Integration with other Layers:
+        The EmployeeService interface serves as a bridge between
+            the presentation layer (such as REST controllers) and
+            the data access layer (such as repositories).
+        It receives requests from the presentation layer,
+        processes them using business logic, and
+         interacts with the repository layer for data persistence or retrieval.

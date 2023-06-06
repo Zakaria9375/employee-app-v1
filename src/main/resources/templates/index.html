@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+
+    <title>Employee Directory</title>
+  </head>
+
+  <body>
+
+  <div class="container">
+
+    <h3>Employee Directory</h3>
+    <hr>
+      <p>
+        User: <span sec:authentication="principal.username"></span>
+        <br>
+        Role(s): <span sec:authentication="principal.authorities"></span>
+
+      </p>
+    <hr>
+    <div sec:authorize="hasRole('MANAGER')">
+      <a th:href="@{list/new}"
+        class="btn btn-primary btn-sm mb-3">
+      Add Employee
+      </a>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th sec:authorize="hasAnyRole('ADMIN','MANAGER')">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="tempEmployee : ${employees}">
+
+          <td th:text="${tempEmployee.firstName}"/>
+          <td th:text="${tempEmployee.lastName}"/>
+          <td th:text="${tempEmployee.email}"/>
+          <td sec:authorize="hasAnyRole('ADMIN','MANAGER')">
+            <a th:href="@{list/update(employeeId=${tempEmployee.id})}"
+               sec:authorize="hasRole('MANAGER')"
+              class="btn btn-info btn-sm">
+              update
+            </a>
+            <a th:href="@{list/delete(employeeId=${tempEmployee.id})}"
+               sec:authorize="hasRole('ADMIN')"
+             class="btn btn-danger btn-sm"
+             onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                Delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="#" th:action="@{/logout}" method="post">
+      <input type="submit" value="Logout">
+    </form>
+  </div>
+  </body>
+</html>

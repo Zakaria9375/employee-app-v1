@@ -1,0 +1,27 @@
+The main difference between
+        the EmployeeService interface and its implementation
+        and the EmployeeRepository interface lies in
+                their respective ...responsibilities... and
+                                 ...purposes... within the application.
+
+    EmployeeRepository Interface:
+        Responsibility:
+            The EmployeeRepository interface is responsible for data access and persistence.
+            It provides an abstraction over the underlying database or data storage system.
+        Purpose:
+            is to define methods for performing CRUD (Create, Read, Update, Delete) operations on employee entities.
+            It handles the low-level database interactions and
+            provides a clean and consistent API for accessing and manipulating employee data.
+
+    EmployeeService Interface and EmployeeServiceImpl Implementation:
+        Responsibility:
+            responsible for implementing the business logic and coordinating the operations related to employee entities.
+        Purpose:
+            is to define a contract for the business logic and operations specific to employees.
+            It provides a higher-level abstraction that encapsulates the operations related to
+                employees, such as creating, retrieving, updating, and deleting employee records.
+                provides the actual implementation of the business logic defined in the interface.
+                It handles the coordination between
+                        the presentation layer (e.g., REST controllers) and
+                        the data access layer (e.g., repositories)
+                            for performing the required operations on employee entities.
