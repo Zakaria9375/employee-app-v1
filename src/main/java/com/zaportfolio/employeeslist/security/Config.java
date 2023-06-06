@@ -27,9 +27,9 @@ public class Config {
         http
             .authorizeHttpRequests( configurer -> configurer
 
-                .requestMatchers(HttpMethod.GET,"/list").hasRole("EMPLOYEE")
-                .requestMatchers(HttpMethod.GET,"/list/new").hasRole("MANAGER")
-                .requestMatchers(HttpMethod.GET,"/list/update").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET,"/list").hasAnyRole("EMPLOYEE","MANAGER","ADMIN")
+                .requestMatchers(HttpMethod.GET,"/list/new").hasAnyRole("MANAGER","ADMIN")
+                .requestMatchers(HttpMethod.GET,"/list/update").hasAnyRole("MANAGER","ADMIN")
                 .requestMatchers(HttpMethod.GET,"/list/delete").hasRole("ADMIN")
                 .anyRequest().authenticated())
             .formLogin(form -> form

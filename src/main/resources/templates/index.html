@@ -25,11 +25,11 @@
       <p>
         User: <span sec:authentication="principal.username"></span>
         <br>
-        Role(s): <span sec:authentication="principal.authorities"></span>
+        Role: <span sec:authentication="principal.authorities"></span>
 
       </p>
     <hr>
-    <div sec:authorize="hasRole('MANAGER')">
+    <div sec:authorize="hasAnyRole('MANAGER','ADMIN')">
       <a th:href="@{list/new}"
         class="btn btn-primary btn-sm mb-3">
       Add Employee
@@ -52,7 +52,7 @@
           <td th:text="${tempEmployee.email}"/>
           <td sec:authorize="hasAnyRole('ADMIN','MANAGER')">
             <a th:href="@{list/update(employeeId=${tempEmployee.id})}"
-               sec:authorize="hasRole('MANAGER')"
+               sec:authorize="hasAnyRole('MANAGER','ADMIN')"
               class="btn btn-info btn-sm">
               update
             </a>
