@@ -1,4 +1,3 @@
-
 # My Employee-List project
 
 This repository contains a simple Java project developed using the powerful Spring Framework. The project serves as an implementation of various components and features offered by Spring, including MVC, Lombok, DevTools, REST, security, data management, H2 Database, and Thymeleaf.
@@ -6,11 +5,12 @@ This repository contains a simple Java project developed using the powerful Spri
 
 ## Table of Contents
 
-- [Overview](#Overview)
+- [Overview](#overview)
 - [Features](#features)
-- [User Roles and Database Access]("#User_Roles_and_Database_Access")
+- [User Roles and Database Access]("#user_roles_and_database_access")
 - [Usage](#usage)
-- [Contributions](#Contributions)
+- [Docker Image]("#docker_image")
+- [Contributions](#contributions)
 
 
 ## Overview
@@ -65,6 +65,20 @@ To get started with this project, please follow the instructions below.
 5. Run the application using mvn spring-boot:run or through your IDE's run configuration.
 6. Access the application by navigating to http://localhost:7070 in your preferred web browser.
 7. Login to the application using the credentials provided for each user role mentioned above and observe the different functionalities available based on the user's role.
+
+## Docker Image
+
+You can also run this application using the Docker image available on Docker Hub.
+
+Docker Hub Repository: [zakaria9375/employeelist](https://hub.docker.com/repository/docker/zakaria9375/employeelist)
+
+To pull and run the Docker image, use the following command:
+
+```
+docker pull zakaria9375/employeelist
+
+docker run -d -p 7070:7070 zakaria9375/employeelist
+```
 
 ## Contributions
 
