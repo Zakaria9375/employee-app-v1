@@ -7,9 +7,9 @@ This repository contains a simple Java project developed using the powerful Spri
 
 - [Overview](#overview)
 - [Features](#features)
-- [User Roles and Database Access]("#user_roles_and_database_access")
+- [User Roles and Database Access](#user-roles-and-database-access)
 - [Usage](#usage)
-- [Docker Image]("#docker_image")
+- [Docker Image](#docker-image)
 - [Contributions](#contributions)
 
 
